@@ -1,0 +1,63 @@
+// http://devfacts.com/media-queries-breakpoints-2020/
+$small-devices-width: 576px;
+$medium-devices-width: 768px;
+$large-devices-width: 992px;
+$extra-large-devices-width: 1200px;
+
+@mixin sm {
+  @media (min-width: #{$small-devices-width}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$medium-devices-width}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$large-devices-width}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$extra-large-devices-width}) {
+    @content;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.ixio-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+  margin-left: -16px; /* gutter size offset */
+
+  @include md {
+    margin-left: -24px; /* gutter size offset */
+  }
+}
+.ixio-masonry-grid-column {
+  background-clip: padding-box;
+  padding-left: 16px; /* gutter size */
+
+  @include md {
+    padding-left: 24px; /* gutter size */
+  }
+}
+
+/* Style your items */
+.ixio-masonry-grid-column > .ixio-masonry-grid-item { /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 16px; /* gutter size */
+
+  @include md {
+    margin-bottom: 24px; /* gutter size */
+  }
+}
