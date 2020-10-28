@@ -1,6 +1,6 @@
 import React from 'react';
 import MasonryComponent from 'react-masonry-component';
-import MasonryCss from 'react-masonry-css';
+import MasonryCss from '../src/react-masonry-css';
 
 const IMAGES = [
   'https://res.cloudinary.com/influenxio/image/upload/v1603784141/posting.product.photos/dcrex1k0yxnln2vpop2s.jpg',
@@ -65,8 +65,9 @@ function MasonryCssDemo() {
       breakpointCols={breakpointColumnsObj}
       className="ixio-masonry-grid"
       columnClassName="ixio-masonry-grid-column"
+      padEmptyColumn
     >
-      {SCALED_IMAGES(640).map(img => (
+      {SCALED_IMAGES(640).slice(0, 3).map(img => (
         <div key={img.key} className="ixio-masonry-grid-item">
           <img src={img.src} style={{ width: '100%', display: 'block' }} />
         </div>
